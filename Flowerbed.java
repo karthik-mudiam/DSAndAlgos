@@ -65,10 +65,13 @@ public class Flowerbed {
 		if(numberToPlace > size) {
 			return false;
 		}
+		if(flowerbed.size() == 1 && flowerbed.get(0) == 0 && numberToPlace == 1) {
+		    return true;
+		}
 		int i = 0;
 		while(i < size) {
 			if(flowerbed.get(i)) {
-				i += 2;
+				i += 1;
 				continue;
 			}
 			else if(!flowerbed.get(i) && i == 0) {
@@ -78,7 +81,7 @@ public class Flowerbed {
 						return true;
 					}
 				}
-				i += 2;
+				i += 1;
 			}
 			else if(!flowerbed.get(i) && i == size-1) {
 				if(!flowerbed.get(i-1)) {
@@ -87,7 +90,7 @@ public class Flowerbed {
 						return true;
 					}
 				}
-				i += 2;
+				i += 1;
 			}
 			else if(!flowerbed.get(i)) {
 				if(!flowerbed.get(i-1) && !flowerbed.get(i+1)) {
@@ -96,7 +99,7 @@ public class Flowerbed {
 						return true;
 					}
 				}
-				i += 2;
+				i += 1;
 			}
 			
 		}		
